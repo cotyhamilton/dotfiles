@@ -94,5 +94,5 @@ export PATH
 PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
 export PATH
 
- alias ll='ls -lG'
+alias ll='ls -lGa'
 
