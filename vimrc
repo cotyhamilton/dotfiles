@@ -28,16 +28,14 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 call vundle#end()
 filetype plugin indent on
 
-colorscheme solarized                   " best color scheme
+colorscheme delek                       " set colorscheme
 
 " -- Custom Key-Bindings
 set pastetoggle=<f3>                    " f3 to toggle paste mode
 map <C-n> :NERDTreeToggle<CR>           " control-n to toggle NERDTree
-
-
 
