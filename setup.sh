@@ -1,10 +1,7 @@
 #!/bin/sh
 
 # Get the absolute path to the directory containing this script
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-
-# Define the source directory for your dotfiles (relative to the script)
-DOTFILES_DIR="$SCRIPT_DIR/dotfiles"
+DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # List of files to symlink
 FILES_TO_SYMLINK=".zshrc"
