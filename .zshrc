@@ -1,5 +1,3 @@
-# Basic .zshrc
-
 setopt prompt_subst
 autoload -Uz vcs_info
 autoload -Uz compinit && compinit
@@ -21,19 +19,28 @@ vcs_info_wrapper() {
 
 PROMPT=$'\n%n '"%B%F{242}%2~%f%b "$'$(vcs_info_wrapper)'$'\n'"%(?.%F{green}➜.%F{red}➜)%f "
 
-# -G is for color on mac
-alias ls='ls -G'
-
-alias ll='ls -alF'
-
-# n package for managing node versions
-# ---
-# preserves version of npm while switching versions of node
-# ignore and get latest npm by `n --no-preserve lts`
-export N_PRESERVE_NPM=1
-
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # macOS: Use -G for color
+  alias ls='ls -G'
+  alias ll='ls -alFG'
+else
+  # Linux: Use --color=auto for color
+  alias ls='ls --color=auto'
+  alias ll='ls -alF --color=auto'
+fi
 
 # bind up and down arrows to search zsh history
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
+
+# https://github.com/tj/n
+export N_PRESERVE_NPM=1
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+# https://github.com/denoland/deno
+export DENO_INSTALL="/Users/cotyhamilton/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
+# https://kubernetes.io/docs/reference/kubectl/generated/kubectl_completion/
+source <(kubectl completion zsh)
+alias k=kubectl
