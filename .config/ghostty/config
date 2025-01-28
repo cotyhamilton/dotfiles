@@ -4,6 +4,10 @@ macos-icon-frame = plastic
 macos-icon-ghost-color = #000000
 macos-icon-screen-color = #000000
 
+# cursor
+shell-integration-features = no-cursor
+cursor-style = block
+
 # font
 font-size = 14
 font-feature = -calt
@@ -15,6 +19,12 @@ macos-titlebar-style = tabs
 window-padding-x = 8
 window-height = 40
 window-width = 148
+window-save-state = always
+background-blur-radius = 20
+background-opacity = 0.8
+
+# key bindings
+keybind = global:cmd+grave_accent=toggle_quick_terminal
 
 # color palette
 palette = 0=#000000
