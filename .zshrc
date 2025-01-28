@@ -1,3 +1,4 @@
+# prompt
 setopt prompt_subst
 autoload -Uz vcs_info
 autoload -Uz compinit && compinit
@@ -17,16 +18,18 @@ vcs_info_wrapper() {
   fi
 }
 
+# cotyhamilton ~
+# ➜
 PROMPT=$'\n%n '"%B%F{242}%2~%f%b "$'$(vcs_info_wrapper)'$'\n'"%(?.%F{green}➜.%F{red}➜)%f "
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  # macOS: Use -G for color
-  alias ls='ls -G'
-  alias ll='ls -alFG'
+# aliases
+alias ll='ls -lha'
+alias k=kubectl
+
+if ls --color=auto &>/dev/null; then
+	alias ls='ls -p --color=auto'
 else
-  # Linux: Use --color=auto for color
-  alias ls='ls --color=auto'
-  alias ll='ls -alF --color=auto'
+	alias ls='ls -p -G'
 fi
 
 # https://github.com/tj/n
@@ -39,4 +42,3 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 
 # https://kubernetes.io/docs/reference/kubectl/generated/kubectl_completion/
 source <(kubectl completion zsh)
-alias k=kubectl

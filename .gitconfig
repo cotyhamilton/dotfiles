@@ -1,0 +1,9 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Coty Hamilton
+	email = 13724650+cotyhamilton@users.noreply.github.com
+	signingkey = ~/.ssh/id_rsa.pub
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
