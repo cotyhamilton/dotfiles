@@ -6,6 +6,9 @@ macos-icon-screen-color = #000000
 
 # font
 font-size = 14
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
 
 # window
 macos-titlebar-style = tabs
