@@ -26,4 +26,4 @@ _darcs
 .DS_Store
 
 # scripts
-\.sh
+^.*\.sh$
